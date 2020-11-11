@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerHealth
+  - PlayerDamage
+  - EnemyHealth
+  - EnemyDamage
   - 
   - 
   - 
