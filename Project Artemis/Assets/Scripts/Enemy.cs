@@ -18,6 +18,10 @@ public class Enemy : MonoBehaviour
 
         health -= DamagePoints;
         Debug.Log("EnemyLostHealth");
+        if (health == 0 )
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

@@ -33,10 +33,18 @@ public class Weapon : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         IsAttacking = false;
     }
+    private IEnumerator Talk()
+    {
+        bool isTalking = true;
+        GetComponent<BoxCollider2D>().enabled = true;
+        yield return new WaitForSeconds(2f);
+        GetComponent<BoxCollider2D>().enabled = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.transform.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        collision.transform.SendMessage("Talk", SendMessageOptions.DontRequireReceiver);
         GetComponent<Collider2D>().enabled = false;
 
 
