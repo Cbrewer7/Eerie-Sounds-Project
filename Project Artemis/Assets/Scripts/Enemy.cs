@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private int health = 10;
+    private float health = 10;
 
     // Update is called once per frame
     void Update()
@@ -13,15 +13,11 @@ public class Enemy : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void TakeDamage(int DamagePoints)
     {
-        Debug.Log("Yup Hit");
-        health--;
-    }
 
-    public void Hit()
-    {
-        Debug.Log("Yup Hit");
+        health -= DamagePoints;
+        Debug.Log("EnemyLostHealth");
     }
 
 }

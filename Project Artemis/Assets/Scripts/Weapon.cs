@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -11,38 +10,39 @@ public class Weapon : MonoBehaviour
     }
 
     private bool IsAttacking = false;
-
+    public int damage = 1;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+
+        if (Input.GetMouseButton(0) && !IsAttacking)
         {
-            Attack();
-        }
-    }
-    public void Attack()
-    {
-        if (!IsAttacking)
-        {
-            IsAttacking = true;
-            GetComponent<BoxCollider2D>().enabled = true;
-            GetComponent<BoxCollider2D>().enabled = false;
-            Invoke("endAttack", 1f);
+            StartCoroutine(Attack());
         }
     }
 
-    private void endAttack()
+
+    private IEnumerator Attack()
     {
+
+        IsAttacking = true;
+        GetComponent<BoxCollider2D>().enabled = true;
+        yield return new WaitForSeconds(2f);
         GetComponent<BoxCollider2D>().enabled = false;
         IsAttacking = false;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Did i hit something?");
-        collision.transform.SendMessage("Hit", SendMessageOptions.DontRequireReceiver);
+        collision.transform.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        GetComponent<Collider2D>().enabled = false;
+
+
     }
+
+
+
 
 }
