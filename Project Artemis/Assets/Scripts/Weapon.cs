@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour
 
         if (Input.GetMouseButton(0) && !IsAttacking)
         {
-            StartCoroutine(Attack());
+        //    StartCoroutine(Attack());
         }
     }
 
@@ -41,15 +41,24 @@ public class Weapon : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        collision.transform.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
-        collision.transform.SendMessage("Talk", SendMessageOptions.DontRequireReceiver);
-        GetComponent<Collider2D>().enabled = false;
+        if (Input.GetMouseButton(0) && !IsAttacking)
+        {
+            IsAttacking = true;
+            collision.transform.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            Invoke("EndAttack", 2f);
+        }
+       // collision.transform.SendMessage("Talk", SendMessageOptions.DontRequireReceiver);
+       // GetComponent<Collider2D>().enabled = false;
 
 
     }
 
+    private void EndAttack()
+    {
+        IsAttacking = false;
+    }
 
 
 
