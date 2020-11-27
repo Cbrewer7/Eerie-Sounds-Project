@@ -7,6 +7,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float health = 10;
 
+    [SerializeField]
+    private int xpValue;
+
+    public Player player;
+
     // Update is called once per frame
     void Update()
     {
@@ -17,9 +22,9 @@ public class Enemy : MonoBehaviour
     {
 
         health -= DamagePoints;
-        Debug.Log("EnemyLostHealth");
         if (health == 0 )
         {
+            player.GainXP(xpValue);
             Destroy(gameObject);
         }
     }

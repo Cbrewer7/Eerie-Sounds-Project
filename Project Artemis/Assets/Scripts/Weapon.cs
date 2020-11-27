@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
     public int damage = 1;
 
 
+
     // Update is called once per frame
     void Update()
     {
@@ -48,9 +49,10 @@ public class Weapon : MonoBehaviour
             IsAttacking = true;
             collision.transform.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
             Invoke("EndAttack", 2f);
+        } else if (Input.GetKeyDown(KeyCode.E))
+        {
+            collision.transform.SendMessage("Talk", SendMessageOptions.DontRequireReceiver);
         }
-       // collision.transform.SendMessage("Talk", SendMessageOptions.DontRequireReceiver);
-       // GetComponent<Collider2D>().enabled = false;
 
 
     }
@@ -59,7 +61,6 @@ public class Weapon : MonoBehaviour
     {
         IsAttacking = false;
     }
-
 
 
 }
