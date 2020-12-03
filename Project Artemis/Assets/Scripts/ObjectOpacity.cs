@@ -7,20 +7,20 @@ public class ObjectOpacity : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "PlayerCollider")
         {
             GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 0.7f);
-            //GetComponentInParent<Transform>().position = new Vector3(0, 0, 0.01f);
             //GetComponent<Transform>().position = new Vector3(0, 0, 0.01f);
+            transform.parent.position = new Vector3(transform.position.x, transform.position.y, -0.01f);
         } 
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "PlayerCollider")
         {
             GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            //GetComponentInParent<Transform>().position = new Vector3(0, 0, 0);
+            transform.parent.position = new Vector3(transform.position.x, transform.position.y, 0.01f);
             //GetComponent<Transform>().position = new Vector3(0, 0, 0);
         }
     }
