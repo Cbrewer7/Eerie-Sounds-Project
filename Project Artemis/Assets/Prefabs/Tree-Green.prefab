@@ -119,8 +119,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5870202042416969734}
-  - component: {fileID: 5870202042416969736}
   - component: {fileID: 5870202042416969737}
+  - component: {fileID: 1002764250}
   m_Layer: 0
   m_Name: Transparency Trigger
   m_TagString: Untagged
@@ -142,18 +142,6 @@ Transform:
   m_Father: {fileID: 5870202041684135584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5870202042416969736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5870202042416969735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d710971a017d9bb42b11ba779b0aa850, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &5870202042416969737
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -193,3 +181,15 @@ PolygonCollider2D:
       - {x: 0.25834477, y: 0.03938799}
       - {x: 0.37239838, y: 0.1401855}
       - {x: 0.42783457, y: 0.21027441}
+--- !u!114 &1002764250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5870202042416969735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d710971a017d9bb42b11ba779b0aa850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
