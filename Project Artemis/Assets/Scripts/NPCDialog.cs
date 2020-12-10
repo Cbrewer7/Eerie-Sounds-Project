@@ -17,22 +17,24 @@ public class NPCDialog : MonoBehaviour
 
     public GameObject DialogBoxObject;
 
-    private Queue<string> sentances;
 
-    void Start()
-    {
-        sentances = new Queue<string>();
-    }
+    private bool talking = false;
 
     public void Talk()
     {
-        foreach (string line in lines)
+        if (!talking)
         {
-            sentances.Enqueue(line);
+            talking = true;
+            DialogBoxObject.SetActive(true);
+            DialogBox.text = "";
+            nameText.text = name;
+            StartCoroutine(Speak());
         }
-        DialogBoxObject.SetActive(true);
-        nameText.text = name;
-        StartCoroutine(Speak());
+        else
+        {
+            talking = false;
+            DialogBoxObject.SetActive(false); 
+        }
     }
 
     private IEnumerator Speak()
