@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI SkillPointsText;
 
+    public Canvas SkillPointsCanvas;
+
     [Range(1,50)]
     public int[] LevelValues;
 
@@ -43,7 +45,7 @@ public class Player : MonoBehaviour
         {
             SkillPointsText.enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.F) && skillpoints > 0) skillpoints--;
+        if (Input.GetKeyDown(KeyCode.F) && skillpoints > 0) SkillPointsCanvas.enabled = true;
     }
 
     public void TakeDamage(int DamagePoints)
@@ -67,5 +69,9 @@ public class Player : MonoBehaviour
             Debug.Log("Level Uped");
         }
         
+    }
+    
+    public void SpendPoint() {
+        skillpoints--;
     }
 }
