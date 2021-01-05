@@ -62,5 +62,8 @@ public class Weapon : MonoBehaviour
         IsAttacking = false;
     }
 
-
+    public void addDamage(int d)
+    {
+        damage += d;
+    }
 }

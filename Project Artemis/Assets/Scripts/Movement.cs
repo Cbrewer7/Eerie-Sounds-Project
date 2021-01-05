@@ -19,4 +19,9 @@ public class Movement : MonoBehaviour
 
 
     }
+
+    public void increaseSpeed(float s)
+    {
+        speed += (s / 2);
+    }
 }

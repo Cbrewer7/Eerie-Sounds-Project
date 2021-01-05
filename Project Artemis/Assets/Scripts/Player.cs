@@ -74,4 +74,11 @@ public class Player : MonoBehaviour
     public void SpendPoint() {
         skillpoints--;
     }
+
+    public void IncreaseHealth(int h)
+    {
+        defaulthealth += h;
+    }
+
+
 }
