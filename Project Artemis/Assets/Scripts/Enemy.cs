@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
 
         health -= DamagePoints;
-        if (health == 0 )
+        if (health <= 0 )
         {
             player.GainXP(xpValue);
             Destroy(gameObject);
